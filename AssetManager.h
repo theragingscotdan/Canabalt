@@ -20,7 +20,7 @@ public:
 	// get a texture based on a file name
 	static sf::Texture& GetTexture(std::string _fileName);
 	// get a sound buffer based on a file
-	//static sf::SoundBuffer& GetSoundBuffer(std::string _fileName);
+	static sf::SoundBuffer& GetSoundBuffer(std::string _fileName);
 	// get a font based on a file name
 	//static sf::Font& GetFont(std::string _fileName);
 	

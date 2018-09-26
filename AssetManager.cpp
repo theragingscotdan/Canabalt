@@ -62,3 +62,31 @@ sf::Texture& AssetManager::GetTexture(std::string _fileName)
 		return texture;
 	}
 }
+
+sf::SoundBuffer& AssetManager::GetSoundBuffer(std::string _fileName)
+{
+	std::map<std::string, sf::SoundBuffer>::iterator keyValuePair1 = s_instance->m_soundBuffers.find(_fileName);
+
+	if (keyValuePair1 != s_instance->m_soundBuffers.end())
+	{
+		// YES! We found it!
+		return keyValuePair1->second;
+	}
+	else
+	{
+		// NO! We didn't find it!
+
+		// let's create it then!
+
+		// Create a new key value pair using the filename
+		// The subcscript [] operator creates an entry in 
+		// the map if there is not already one there
+
+		sf::SoundBuffer& soundBuffer = s_instance->m_soundBuffers[_fileName];
+		// blank texture has been created
+		// Now just load it from file
+		soundBuffer.loadFromFile(_fileName);
+
+		return soundBuffer;
+	}
+}
