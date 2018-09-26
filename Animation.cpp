@@ -36,11 +36,27 @@ void Animation::Update(sf::Time _frameTime)
 			m_currentFrame = 0;
 		}
 
+		// update sprite's texture to match new frame
 		// does our sprite exist
 
 		if (m_sprite) // is not = 0 aka null aka nullptrl
 		{
 			m_sprite->setTexture(*m_frames[m_currentFrame]);
 		}
+
+		// determine time for next frame change
+		// convert frames per seconds to seconds per frame
+		float timeToChange = 1.0f / m_playBackSpeed;
+		m_nextFrameChange = sf::seconds(timeToChange);
 	}
+}
+
+void Animation::AddFrame(sf::Texture& _newFrame)
+{
+	m_frames.push_back(&_newFrame);
+}
+
+void Animation::SetSprite(sf::Sprite&_sprite)
+{
+	m_sprite = &_sprite;
 }
