@@ -18,7 +18,7 @@ int main()
 
 	// Render Window creation
 	sf::RenderWindow gameWindow;
-	gameWindow.create(sf::VideoMode::getDesktopMode(), "Whack A Critter",
+	gameWindow.create(sf::VideoMode::getDesktopMode(), "Canabalt",
 		sf::Style::Titlebar | sf::Style::Close);
 
 	// Timer functionality
@@ -44,6 +44,9 @@ int main()
 	testAnimation.SetSprite(testSprite);
 	testAnimation.AddFrame(AssetManager::GetTexture("graphics/playerRun1.png"));
 	testAnimation.AddFrame(AssetManager::GetTexture("graphics/playerRun2.png"));
+	testAnimation.SetLoop(true);
+	testAnimation.SetPlayBackSpeed(10.0f);
+	testAnimation.Play();
 
 	// end game setup
 	// -------------------------------------
