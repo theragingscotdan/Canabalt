@@ -90,3 +90,21 @@ sf::SoundBuffer& AssetManager::GetSoundBuffer(std::string _fileName)
 		return soundBuffer;
 	}
 }
+
+sf::Font& AssetManager::GetFont(std::string _fileName)
+{
+	std::map<std::string, sf::Font>::iterator keyValuePair = s_instance->m_fonts.find(_fileName);
+
+	if (keyValuePair != s_instance->m_fonts.end())
+	{
+		return keyValuePair->second;
+	}
+	else
+	{
+		sf::Font& font = s_instance->m_fonts[_fileName];
+		font.loadFromFile(_fileName);
+
+		return font;
+
+	}
+}

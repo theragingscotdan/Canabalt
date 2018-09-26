@@ -33,8 +33,13 @@ int main()
 	sf::Sound testSound;
 	testSound.setBuffer(AssetManager::GetSoundBuffer("audio/music.ogg"));
 	testSound.play();
+
+	sf::Text testText;
+	testText.setFont(AssetManager::GetFont("fonts/mainFont.ttf"));
+	testText.setString("Testing");
+
 	// end game setup
-	// --------------------------------------
+	// -------------------------------------
 
 
 	// --------------------------------------
@@ -77,6 +82,7 @@ int main()
 
 		// Draw Everything
 		gameWindow.draw(testSprite);
+		gameWindow.draw(testText);
 
 
 		// Display the window contents to the screen
